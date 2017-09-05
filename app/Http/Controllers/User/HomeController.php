@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Sentinel;
+use App\Models\UserRoot;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+		$user_id = Sentinel::getUser()->id;
+		$root_dir = UserRoot::where('user_id', $user_id)->first();
+		$directories = null;
+        return view('user.home', ['directories' => $directories]);
     }
 }
