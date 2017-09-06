@@ -13,8 +13,17 @@
 
 // Index page
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
-// Home page
-Route::get('home', ['as' => 'home', 'uses' => 'User\HomeController@index']);
+/*######### HOME #####################*/
+Route::group(['prefix' => 'home'], function () {
+	// Home page
+	Route::get('/', ['as' => 'home', 'uses' => 'User\HomeController@index']);
+	// Dir page
+	Route::get('/{sublevels?}', ['as' => 'home.dir', 'uses' => 'User\HomeController@directories'])->where('sublevels', '(.*)');
+});
+
+// Create new dir
+Route::post('create', ['as' => 'dir.create', 'uses' => 'User\HomeController@create']);
+
 
 // Authorization
 Route::get('login', ['as' => 'auth.login.form', 'uses' => 'Auth\SessionController@getLogin']);
