@@ -24,6 +24,9 @@ Route::group(['prefix' => 'home'], function () {
 // Create new dir
 Route::post('create', ['as' => 'dir.create', 'uses' => 'User\HomeController@create']);
 
+// Delete dir
+Route::get('{dir?}', ['as' => 'dir.delete', 'uses' => 'User\HomeController@delete']);
+
 
 // Authorization
 Route::get('login', ['as' => 'auth.login.form', 'uses' => 'Auth\SessionController@getLogin']);
