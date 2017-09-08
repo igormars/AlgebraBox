@@ -13,6 +13,8 @@
 
 // Index page
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+// Image upload
+Route::post('/upload', ['as' => 'image.upload', 'uses' => 'IndexController@upload']);
 /*######### HOME #####################*/
 Route::group(['prefix' => 'home'], function () {
 	// Home page
@@ -22,7 +24,7 @@ Route::group(['prefix' => 'home'], function () {
 });
 
 // Create new dir
-Route::post('create', ['as' => 'dir.create', 'uses' => 'User\HomeController@create']);
+Route::post('create', ['as' => 'dir.create', 'uses' => 'IndexController@create']);
 
 // Delete dir
 Route::get('{dir?}', ['as' => 'dir.delete', 'uses' => 'User\HomeController@delete']);

@@ -96,8 +96,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'new_dir' => [
+            'required' => 'The <b>:attribute</b> field is required.',
         ],
     ],
 
@@ -112,6 +112,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+		'new_dir'		=> 'New Directory'
+	],
 
 ];

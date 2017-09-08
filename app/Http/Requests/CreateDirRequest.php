@@ -14,10 +14,7 @@ class CreateDirRequest extends FormRequest
      */
     public function authorize()
     {
-		if(Sentinel::check()) {
-			return true;
-		}
-        return false;
+		return true;
     }
 
     /**
@@ -28,7 +25,7 @@ class CreateDirRequest extends FormRequest
     public function rules()
     {
         return [
-            'new_dir' => 'max:6|required',
+            'pero' => 'max:6|required',
         ];
     }
 }
